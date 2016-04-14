@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: myapp-v_%BUILD_NUMBER%
+  name: myapp-v%BUILD_NUMBER%
 spec:
   replicas: 1
   selector:
     app: myapp
-    deployment: v_%BUILD_NUMBER%
+    deployment: v%BUILD_NUMBER%
   template:
     metadata:
       name: myapp
       labels:
         app: myapp
-        deployment: v_%BUILD_NUMBER%
+        deployment: v%BUILD_NUMBER%
     spec:
       containers:
       - name: myapp
-        image: pacuna/myapp:v_%BUILD_NUMBER%
+        image: pacuna/myapp:v%BUILD_NUMBER%
         ports:
           - containerPort: 80
         env:

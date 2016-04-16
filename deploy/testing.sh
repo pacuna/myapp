@@ -1,5 +1,5 @@
 #!/bin/bash
-docker create network testing
+docker network create testing
 docker pull postgres:9.4
 docker pull elasticsearch:2
 docker run --name postgres --net testing -e POSTGRES_PASSWORD=secretpassword -d postgres:9.4 &&

@@ -1,4 +1,6 @@
 #!/bin/bash
+echo 'intalling gems'
+RAILS_ENV=test bundle install
 echo 'creating test database...'
 RAILS_ENV=test rake db:create
 echo 'migrating test database...'

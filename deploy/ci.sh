@@ -3,7 +3,7 @@
 USERNAME=${CREDENTIALS%:*}
 PASSWORD=${CREDENTIALS#*:}
 
-if [ "$PASSENGER_APP_ENV" = "production" ]; then
+if [ "${JOB_NAME}" = "myapp-production" ]; then
 
   sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./deploy/kube/rcs/myapp-production.yaml > temp.yaml
   LAST_SUCCESSFUL_BUILD=$(curl http://${USERNAME}:${PASSWORD}@52.38.170.255:8080/job/myapp-production/lastSuccessfulBuild/buildNumber)
@@ -17,7 +17,7 @@ if [ "$PASSENGER_APP_ENV" = "production" ]; then
   fi
   rm temp.yaml
 
-elif [ "$PASSENGER_APP_ENV" = "staging" ]; then
+elif [ "${JOB_NAME}" = "myapp-staging" ]; then
 
   sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./deploy/kube/rcs/myapp-staging.yaml > temp.yaml
   LAST_SUCCESSFUL_BUILD=$(curl http://${USERNAME}:${PASSWORD}@52.38.170.255:8080/job/myapp-staging/lastSuccessfulBuild/buildNumber)

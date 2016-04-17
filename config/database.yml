@@ -83,6 +83,15 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_production
+  username: postgres
+  host: postgres.production
+  password: secretpassword
+  pool: 5
+
 production:
   adapter: postgresql
   encoding: unicode

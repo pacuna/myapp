@@ -1,7 +1,7 @@
 # Connect to specific Elasticsearch cluster
 # ELASTICSEARCH_URL = ENV['MYAPP_ES_PORT_9200_TCP_ADDR'] || ENV['ELASTICSEARCH_PORT_9200_TCP_ADDR']
 
-if Rails.env.production?
+if Rails.env.production? || Rails.env.staging?
   host = 'elasticsearch.production'
 else
   host = 'elasticsearch'

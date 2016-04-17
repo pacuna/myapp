@@ -3,7 +3,7 @@
 USERNAME=${CREDENTIALS%:*}
 PASSWORD=${CREDENTIALS#*:}
 
-sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./deploy/rcs/kube/myapp.yaml > temp.yaml
+sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./deploy/kube/rcs/myapp.yaml > temp.yaml
 
 LAST_SUCCESSFUL_BUILD=$(curl http://${USERNAME}:${PASSWORD}@52.38.170.255:8080/job/myapp/lastSuccessfulBuild/buildNumber)
 

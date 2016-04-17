@@ -88,6 +88,6 @@ production:
   encoding: unicode
   database: myapp_production
   username: postgres
-  host: postgres
+  host: postgres.production
   password: secretpassword
   pool: 5
